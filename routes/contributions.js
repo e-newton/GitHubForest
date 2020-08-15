@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 require('dotenv').config();
 const fetch = require("node-fetch");
-const token = "b50663e05d203186f448263c383b3246de26b8bf";
 
 
 

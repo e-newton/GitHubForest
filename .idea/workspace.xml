@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cc322875-443b-43e3-8631-b9af9ee8368c" name="Default Changelist" comment="" />
+    <list default="true" id="cc322875-443b-43e3-8631-b9af9ee8368c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/contributions.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/contributions.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,7 +17,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1g1kd3dTy7OlSCa7KrYaZCPH3fc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -49,12 +56,24 @@
       <option name="presentableId" value="Default" />
       <updated>1597289571188</updated>
       <workItem from="1597289572586" duration="3646000" />
-      <workItem from="1597450349728" duration="2524000" />
+      <workItem from="1597450349728" duration="2864000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial Commit of GitHub Forest">
+      <created>1597461603826</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1597461603826</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial Commit of GitHub Forest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit of GitHub Forest" />
   </component>
   <component name="WindowStateProjectService">
     <state x="184" y="90" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597291149283">
@@ -65,6 +84,10 @@
       <screen x="0" y="23" width="1440" height="811" />
     </state>
     <state x="479" y="237" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.811@0.23.1440.811" timestamp="1597461449377" />
+    <state x="317" y="23" key="CommitChangelistDialog2" timestamp="1597461603301">
+      <screen x="0" y="23" width="1440" height="811" />
+    </state>
+    <state x="317" y="23" key="CommitChangelistDialog2/0.23.1440.811@0.23.1440.811" timestamp="1597461603301" />
     <state width="1419" height="209" key="GridCell.Tab.0.bottom" timestamp="1597461338019">
       <screen x="0" y="23" width="1440" height="811" />
     </state>
@@ -133,5 +156,13 @@
       <screen x="0" y="23" width="1440" height="811" />
     </state>
     <state x="229" y="67" key="SettingsEditor/0.23.1440.811@0.23.1440.811" timestamp="1597291303477" />
+    <state x="320" y="168" key="Vcs.Push.Dialog.v2" timestamp="1597461778035">
+      <screen x="0" y="23" width="1440" height="811" />
+    </state>
+    <state x="320" y="168" key="Vcs.Push.Dialog.v2/0.23.1440.811@0.23.1440.811" timestamp="1597461778035" />
+    <state x="542" y="329" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1597461770821">
+      <screen x="0" y="23" width="1440" height="811" />
+    </state>
+    <state x="542" y="329" key="git4idea.remote.GitConfigureRemotesDialog/0.23.1440.811@0.23.1440.811" timestamp="1597461770821" />
   </component>
 </project>
