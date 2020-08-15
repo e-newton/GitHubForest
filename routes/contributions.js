@@ -23,20 +23,22 @@ async function getContributions(user){
         },
         body: JSON.stringify({
             query: `query { 
-                      user(login: "${user}"){
-                        contributionsCollection{
-                          contributionCalendar{
-                            weeks{
-                              firstDay
-                              contributionDays{
-                                date
-                                contributionCount
+                          user(login: "${user}"){
+                            contributionsCollection{
+                              contributionYears
+                              contributionCalendar{
+                                
+                                weeks{
+                                  firstDay
+                                  contributionDays{
+                                    date
+                                    contributionCount
+                                  }
+                                }
                               }
                             }
                           }
-                        }
-                      }
-                    }`
+                        }`
         })};
 
     const res = await fetch("https://api.github.com/graphql", query);

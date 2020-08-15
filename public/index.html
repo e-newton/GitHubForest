@@ -6,9 +6,40 @@
 </head>
 
 <body>
-  <h1>Express</h1>
-  <p>Welcome to Express</p>
+<p id = "json"></p>
   <script>
+
+    function makeRadioButton(name, value, text) {
+
+      var label = document.createElement("label");
+      var radio = document.createElement("input");
+      radio.type = "radio";
+      radio.name = name;
+      radio.value = value;
+
+      label.appendChild(radio);
+
+      label.appendChild(document.createTextNode(text));
+      return label;
+    }
+
+    class User {
+      constructor(calendar, years) {
+        this.calendar = calendar;
+        this.years = years;
+        this.weeks = calendar.weeks;
+        this.days = [];
+        this.weeks.forEach(week => {
+          week.contributionDays.forEach(day =>{
+            this.days.push(day);
+          })
+        });
+
+      }
+    }
+    let currentUser;
+    let buttons = [];
+    let labels = [];
     const data = {user: "e-newton"}
     const options = {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -22,7 +53,14 @@
     var res = fetch('/contributions', options).then(res =>{
       return res.json();
     }).then(json =>{
-      console.log(json.data);
+      var cc = json.data.user.contributionsCollection;
+      currentUser = new User(cc.contributionCalendar, cc.contributionYears);
+      //document.getElementById("json").innerText = JSON.stringify(json);
+      console.log(currentUser);
+      currentUser.years.forEach(year =>{
+
+      })
+
     })
 
 
