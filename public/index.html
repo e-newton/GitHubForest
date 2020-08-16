@@ -9,7 +9,12 @@
 <body>
 <p id = "json"></p>
   <script src = "three.js"></script>
-  <script>
+  <script src = "OrbitControls.js" type = module></script>
+
+  <script type = 'module'>
+    import * as THREE from '../build/three.module.js';
+    import { OrbitControls } from '/OrbitControls.js';
+
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
@@ -18,22 +23,27 @@
     document.body.appendChild( renderer.domElement );
 
     var geometry = new THREE.BoxGeometry();
-    var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+    var material = new THREE.MeshPhongMaterial( { color: 0xFFff00 } );
+    material.shadowSide = THREE.DoubleSide;
     var cube = new THREE.Mesh( geometry, material );
     scene.add( cube );
-
+    var controls = new OrbitControls( camera, renderer.domElement );
+    var directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
+    scene.add( directionalLight );
     camera.position.z = 5;
 
-    var animate = function () {
+    controls.update();
+
+    function animate() {
       requestAnimationFrame( animate );
-
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
-
+      cube.rotateX(0.1);
       renderer.render( scene, camera );
-    };
-
+    }
     animate();
+
+
+
+
   </script>
   <script>
 
