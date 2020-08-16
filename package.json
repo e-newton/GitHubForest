@@ -11,6 +11,7 @@
     "dotenv": "^8.2.0",
     "express": "~4.16.1",
     "morgan": "~1.9.1",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "three": "^0.119.1"
   }
 }

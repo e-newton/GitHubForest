@@ -3,12 +3,14 @@
 <head>
   <title>Express</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
+
 </head>
 
 <body>
 <p id = "json"></p>
+  <script src = "three.js"></script>
   <script>
-
+    var scene = new THREE.Scene();
     function makeRadioButton(name, value, text) {
 
       var label = document.createElement("label");
@@ -38,6 +40,7 @@
 
       }
     }
+
     let currentUser;
     const currentYear = new Date().getFullYear();
     const data = {user: "e-newton", year: currentYear}
@@ -60,6 +63,8 @@
       })
 
     });
+
+
 
 
   </script>
