@@ -8,14 +8,14 @@ const fetch = require("node-fetch");
 /* GET home page. */
 router.post('/', async function(req, res, next) {
     console.log(req.body.user);
-    const rv = {user: req.body.user, success: true};
-    const jsonResponse = await getContributions(rv.user);
+    const rv = {user: req.body.user,year: req.body.year, success: true};
+    const jsonResponse = await getContributions(rv.user,rv.year);
     res.send(jsonResponse);
 });
 
 
 
-async function getContributions(user){
+async function getContributions(user, year){
     const query = {
         method: 'POST',
         headers : {
@@ -24,7 +24,7 @@ async function getContributions(user){
         body: JSON.stringify({
             query: `query { 
                           user(login: "${user}"){
-                            contributionsCollection{
+                            contributionsCollection(from: "${new Date(year+"-01-01").toISOString()}"){
                               contributionYears
                               contributionCalendar{
                                 

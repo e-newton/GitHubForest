@@ -24,13 +24,14 @@
     }
 
     class User {
-      constructor(calendar, years) {
+      constructor(calendar, years, currentYear) {
         this.calendar = calendar;
         this.years = years;
         this.weeks = calendar.weeks;
         this.days = [];
+        this.currentYear = currentYear;
         this.weeks.forEach(week => {
-          week.contributionDays.forEach(day =>{
+          week["contributionDays"].forEach(day =>{
             this.days.push(day);
           })
         });
@@ -38,32 +39,27 @@
       }
     }
     let currentUser;
-    let buttons = [];
-    let labels = [];
-    const data = {user: "e-newton"}
+    const currentYear = new Date().getFullYear();
+    const data = {user: "e-newton", year: currentYear}
     const options = {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
       headers: {
         'Content-Type': 'application/json'
-        // 'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: JSON.stringify(data) // body data type must match "Content-Type" header
     };
     console.log("Hello I am alive!");
-    var res = fetch('/contributions', options).then(res =>{
+    const res = fetch('/contributions', options).then(res => {
       return res.json();
-    }).then(json =>{
-      var cc = json.data.user.contributionsCollection;
-      currentUser = new User(cc.contributionCalendar, cc.contributionYears);
-      //document.getElementById("json").innerText = JSON.stringify(json);
+    }).then(json => {
+      const cc = json.data.user["contributionsCollection"];
+      currentUser = new User(cc["contributionCalendar"], cc["contributionYears"]);
       console.log(currentUser);
-      currentUser.years.forEach(year =>{
-
+      currentUser.years.forEach(year => {
+        //make a selection button idk;
       })
 
-    })
-
-
+    });
 
 
   </script>
