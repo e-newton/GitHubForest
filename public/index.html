@@ -17,26 +17,37 @@
 
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-
+    var loader = new THREE.ObjectLoader();
     var renderer = new THREE.WebGLRenderer();
     renderer.setSize( window.innerWidth, window.innerHeight );
     document.body.appendChild( renderer.domElement );
 
     var geometry = new THREE.BoxGeometry();
     var material = new THREE.MeshPhongMaterial( { color: 0xFFff00 } );
+    loader.load("smallTree.json", function ( obj ) {
+      scene.add( obj );
+    });
     material.shadowSide = THREE.DoubleSide;
     var cube = new THREE.Mesh( geometry, material );
     scene.add( cube );
     var controls = new OrbitControls( camera, renderer.domElement );
-    var directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
+    var directionalLight = new THREE.DirectionalLight( 0xffffff, 2 );
+    directionalLight.position.set(5,10,7.5);
     scene.add( directionalLight );
+    var group = new THREE.Group();
+    group.add(directionalLight);
+    scene.add(group);
     camera.position.z = 5;
 
     controls.update();
 
     function animate() {
       requestAnimationFrame( animate );
-      cube.rotateX(0.1);
+      cube.rotateX(0.01);
+      group.rotateY(0.02);
+      console.log(group.position);
+
+
       renderer.render( scene, camera );
     }
     animate();
