@@ -12,6 +12,59 @@
   <script src = "OrbitControls.js" type = module></script>
 
   <script type = 'module'>
+
+
+
+    class User {
+      constructor(calendar, years, currentYear) {
+        this.calendar = calendar;
+        this.years = years;
+        this.weeks = calendar.weeks;
+        this.days = [];
+        this.currentYear = currentYear;
+        this.weeks.forEach(week => {
+          week["contributionDays"].forEach(day =>{
+            this.days.push(day);
+          })
+        });
+
+      }
+    }
+
+    let currentUser;
+    const currentYear = new Date().getFullYear();
+    const data = {user: "e-newton", year: currentYear}
+    const options = {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data) // body data type must match "Content-Type" header
+    };
+
+    function getCurrentUserData() {
+      fetch('/contributions', options).then(res => {
+        return res.json();
+      }).then(json => {
+        const cc = json.data.user["contributionsCollection"];
+        currentUser = new User(cc["contributionCalendar"], cc["contributionYears"]);
+        console.log(currentUser);
+        currentUser.years.forEach(year => {
+        })
+
+      });
+    }
+
+    getCurrentUserData();
+
+
+
+
+
+
+
+
+
     import * as THREE from '../build/three.module.js';
     import { OrbitControls } from '/OrbitControls.js';
     var smallTree;
@@ -58,65 +111,7 @@
 
 
   </script>
-  <script>
 
-    function makeRadioButton(name, value, text) {
-
-      var label = document.createElement("label");
-      var radio = document.createElement("input");
-      radio.type = "radio";
-      radio.name = name;
-      radio.value = value;
-
-      label.appendChild(radio);
-
-      label.appendChild(document.createTextNode(text));
-      return label;
-    }
-
-    class User {
-      constructor(calendar, years, currentYear) {
-        this.calendar = calendar;
-        this.years = years;
-        this.weeks = calendar.weeks;
-        this.days = [];
-        this.currentYear = currentYear;
-        this.weeks.forEach(week => {
-          week["contributionDays"].forEach(day =>{
-            this.days.push(day);
-          })
-        });
-
-      }
-    }
-
-    let currentUser;
-    const currentYear = new Date().getFullYear();
-    const data = {user: "e-newton", year: currentYear}
-    const options = {
-      method: 'POST', // *GET, POST, PUT, DELETE, etc.
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data) // body data type must match "Content-Type" header
-    };
-    console.log("Hello I am alive!");
-    const res = fetch('/contributions', options).then(res => {
-      return res.json();
-    }).then(json => {
-      const cc = json.data.user["contributionsCollection"];
-      currentUser = new User(cc["contributionCalendar"], cc["contributionYears"]);
-      console.log(currentUser);
-      currentUser.years.forEach(year => {
-        //make a selection button idk;
-      })
-
-    });
-
-
-
-
-  </script>
 </body>
 
 </html>
