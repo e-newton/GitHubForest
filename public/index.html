@@ -9,21 +9,11 @@
 <body>
 <p id = "json"></p>
   <script src = "three.js"></script>
-  <script>
-    var scene = new THREE.Scene();
-    function makeRadioButton(name, value, text) {
+  <script src = "OrbitControls.js" type = module></script>
 
-      var label = document.createElement("label");
-      var radio = document.createElement("input");
-      radio.type = "radio";
-      radio.name = name;
-      radio.value = value;
+  <script type = 'module'>
 
-      label.appendChild(radio);
 
-      label.appendChild(document.createTextNode(text));
-      return label;
-    }
 
     class User {
       constructor(calendar, years, currentYear) {
@@ -51,23 +41,77 @@
       },
       body: JSON.stringify(data) // body data type must match "Content-Type" header
     };
-    console.log("Hello I am alive!");
-    const res = fetch('/contributions', options).then(res => {
-      return res.json();
-    }).then(json => {
-      const cc = json.data.user["contributionsCollection"];
-      currentUser = new User(cc["contributionCalendar"], cc["contributionYears"]);
-      console.log(currentUser);
-      currentUser.years.forEach(year => {
-        //make a selection button idk;
-      })
 
+    function getCurrentUserData() {
+      fetch('/contributions', options).then(res => {
+        return res.json();
+      }).then(json => {
+        const cc = json.data.user["contributionsCollection"];
+        currentUser = new User(cc["contributionCalendar"], cc["contributionYears"]);
+        console.log(currentUser);
+        currentUser.years.forEach(year => {
+        })
+
+      });
+    }
+
+    getCurrentUserData();
+
+
+
+
+
+
+
+
+
+    import * as THREE from '../build/three.module.js';
+    import { OrbitControls } from '/OrbitControls.js';
+    var smallTree;
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+    var loader = new THREE.ObjectLoader();
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    document.body.appendChild( renderer.domElement );
+
+    loader.load("smallTree.json", function ( obj ) {
+      console.log(obj)
+      smallTree = obj;
     });
+
+    var controls = new OrbitControls( camera, renderer.domElement );
+    var directionalLight = new THREE.DirectionalLight( 0xffffff, 2 );
+    directionalLight.position.set(5,10,7.5);
+    scene.add( directionalLight );
+    var group = new THREE.Group();
+    group.add(directionalLight);
+    scene.add(group);
+    camera.position.z = 5;
+
+    controls.update();
+    var done = false;
+    function animate() {
+      requestAnimationFrame( animate );
+      group.rotateY(0.02);
+      if(smallTree !== undefined && !done){
+        scene.add(smallTree.clone());
+        done = true;
+        console.log("DONE")
+      } else if(!done){
+        console.log("NOT DONE")
+      }
+
+
+      renderer.render( scene, camera );
+    }
+    animate();
 
 
 
 
   </script>
+
 </body>
 
 </html>
