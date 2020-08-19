@@ -73,6 +73,7 @@
     var loader = new THREE.ObjectLoader();
     var renderer = new THREE.WebGLRenderer();
     renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.shadowMap.enabled = true;
     document.body.appendChild( renderer.domElement );
 
     loader.load("smallTree.json", function ( obj ) {
@@ -82,7 +83,9 @@
 
     var controls = new OrbitControls( camera, renderer.domElement );
     var directionalLight = new THREE.DirectionalLight( 0xffffff, 2 );
-    directionalLight.position.set(5,10,7.5);
+    directionalLight.position.set(5,25,7.5);
+    directionalLight.castShadow = true;
+
     scene.add( directionalLight );
     var group = new THREE.Group();
     group.add(directionalLight);
@@ -93,11 +96,22 @@
     var done = false;
     function animate() {
       requestAnimationFrame( animate );
-      group.rotateY(0.02);
       if(smallTree !== undefined && !done){
-        scene.add(smallTree.clone());
+        //scene.add(smallTree.clone());
         done = true;
         console.log("DONE")
+        console.log(smallTree);
+
+        for (let i = -2; i < 3; i++){
+          for (let j = -2; j <3; j++){
+            let pos = new THREE.Vector3(2*i,0,2*j);
+            let t = createTree(pos)
+            scene.add(t);
+            console.log(t);
+          }
+
+
+        }
       } else if(!done){
         console.log("NOT DONE")
       }
@@ -106,6 +120,12 @@
       renderer.render( scene, camera );
     }
     animate();
+
+    function createTree(position){
+      let tree = smallTree.clone();
+      tree.position.set(position.x, position.y, position.z);
+      return tree;
+    }
 
 
 

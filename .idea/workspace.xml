@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc322875-443b-43e3-8631-b9af9ee8368c" name="Default Changelist" comment="Added the correct smallTree.json and have an async load of the tree to add later in the scene.">
+    <list default="true" id="cc322875-443b-43e3-8631-b9af9ee8368c" name="Default Changelist" comment="Merged the API call with Three.js to work within the same script.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
     </list>
@@ -42,6 +42,11 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="CREATE_PULL_REQUEST_DEFAULT_BRANCH" value="master" />
+    <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_USER" value="e-newton" />
+    <option name="CREATE_PULL_REQUEST_DEFAULT_REPO_NAME" value="GitHubForest" />
   </component>
   <component name="ProjectId" id="1g1kd3dTy7OlSCa7KrYaZCPH3fc" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -98,7 +103,8 @@
       <workItem from="1597596435151" duration="22000" />
       <workItem from="1597597097825" duration="47000" />
       <workItem from="1597597256783" duration="4134000" />
-      <workItem from="1597602572006" duration="6178000" />
+      <workItem from="1597602572006" duration="6480000" />
+      <workItem from="1597875643505" duration="812000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit of GitHub Forest">
       <created>1597461603826</created>
@@ -156,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597689583025</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Merged the API call with Three.js to work within the same script.">
+      <created>1597689835329</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1597689835329</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,7 +197,8 @@
     <MESSAGE value="Got Three.js and OrbitControls.js to import correctly" />
     <MESSAGE value="Added loader object for json objects, also played around with groups and lights." />
     <MESSAGE value="Added the correct smallTree.json and have an async load of the tree to add later in the scene." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the correct smallTree.json and have an async load of the tree to add later in the scene." />
+    <MESSAGE value="Merged the API call with Three.js to work within the same script." />
+    <option name="LAST_COMMIT_MESSAGE" value="Merged the API call with Three.js to work within the same script." />
   </component>
   <component name="WindowStateProjectService">
     <state x="184" y="90" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597291149283">
@@ -208,31 +222,35 @@
       <screen x="0" y="23" width="1440" height="829" />
     </state>
     <state x="100" y="100" width="1240" height="700" key="DiffContextDialog/0.23.1440.829@0.23.1440.829" timestamp="1597644125293" />
-    <state width="708" height="201" key="GridCell.Tab.0.bottom" timestamp="1597689106138">
+    <state x="478" y="324" key="Github.CreatePullRequestDialog" timestamp="1597689883472">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="708" height="201" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1597689106138" />
+    <state x="478" y="324" key="Github.CreatePullRequestDialog/0.0.1440.900@0.0.1440.900" timestamp="1597689883472" />
+    <state width="708" height="201" key="GridCell.Tab.0.bottom" timestamp="1597730697142">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="708" height="201" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1597730697142" />
     <state width="1419" height="209" key="GridCell.Tab.0.bottom/0.23.1440.811@0.23.1440.811" timestamp="1597535453055" />
     <state width="688" height="201" key="GridCell.Tab.0.bottom/0.23.1440.829@0.23.1440.829" timestamp="1597644505212" />
     <state width="689" height="202" key="GridCell.Tab.0.bottom/0.23.1440.831@0.23.1440.831" timestamp="1597602336764" />
-    <state width="708" height="201" key="GridCell.Tab.0.center" timestamp="1597689106137">
+    <state width="708" height="201" key="GridCell.Tab.0.center" timestamp="1597730697139">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="708" height="201" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1597689106137" />
+    <state width="708" height="201" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1597730697139" />
     <state width="1419" height="209" key="GridCell.Tab.0.center/0.23.1440.811@0.23.1440.811" timestamp="1597535453055" />
     <state width="688" height="201" key="GridCell.Tab.0.center/0.23.1440.829@0.23.1440.829" timestamp="1597644505208" />
     <state width="689" height="202" key="GridCell.Tab.0.center/0.23.1440.831@0.23.1440.831" timestamp="1597602336763" />
-    <state width="708" height="201" key="GridCell.Tab.0.left" timestamp="1597689106135">
+    <state width="708" height="201" key="GridCell.Tab.0.left" timestamp="1597730697138">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="708" height="201" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1597689106135" />
+    <state width="708" height="201" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1597730697138" />
     <state width="1419" height="209" key="GridCell.Tab.0.left/0.23.1440.811@0.23.1440.811" timestamp="1597535453054" />
     <state width="688" height="201" key="GridCell.Tab.0.left/0.23.1440.829@0.23.1440.829" timestamp="1597644505206" />
     <state width="689" height="202" key="GridCell.Tab.0.left/0.23.1440.831@0.23.1440.831" timestamp="1597602336763" />
-    <state width="708" height="201" key="GridCell.Tab.0.right" timestamp="1597689106137">
+    <state width="708" height="201" key="GridCell.Tab.0.right" timestamp="1597730697140">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="708" height="201" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1597689106137" />
+    <state width="708" height="201" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1597730697140" />
     <state width="1419" height="209" key="GridCell.Tab.0.right/0.23.1440.811@0.23.1440.811" timestamp="1597535453055" />
     <state width="688" height="201" key="GridCell.Tab.0.right/0.23.1440.829@0.23.1440.829" timestamp="1597644505210" />
     <state width="689" height="202" key="GridCell.Tab.0.right/0.23.1440.831@0.23.1440.831" timestamp="1597602336764" />
@@ -300,12 +318,16 @@
       <screen x="0" y="23" width="1440" height="811" />
     </state>
     <state x="229" y="67" key="SettingsEditor/0.23.1440.811@0.23.1440.811" timestamp="1597291303477" />
-    <state x="320" y="161" key="Vcs.Push.Dialog.v2" timestamp="1597689584413">
+    <state x="320" y="161" key="Vcs.Push.Dialog.v2" timestamp="1597689837336">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="161" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1597689584413" />
+    <state x="320" y="161" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1597689837336" />
     <state x="320" y="168" key="Vcs.Push.Dialog.v2/0.23.1440.811@0.23.1440.811" timestamp="1597522986496" />
     <state x="320" y="172" key="Vcs.Push.Dialog.v2/0.23.1440.831@0.23.1440.831" timestamp="1597598765183" />
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597875661560">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1440.900@0.0.1440.900" timestamp="1597875661560" />
     <state x="542" y="337" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1597598760346">
       <screen x="0" y="23" width="1440" height="831" />
     </state>
