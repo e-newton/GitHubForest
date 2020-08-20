@@ -49,8 +49,7 @@
         const cc = json.data.user["contributionsCollection"];
         currentUser = new User(cc["contributionCalendar"], cc["contributionYears"]);
         console.log(currentUser);
-        currentUser.years.forEach(year => {
-        })
+        createForest(currentUser);
 
       });
     }
@@ -102,16 +101,16 @@
         console.log("DONE")
         console.log(smallTree);
 
-        for (let i = -2; i < 3; i++){
-          for (let j = -2; j <3; j++){
-            let pos = new THREE.Vector3(2*i,0,2*j);
-            let t = createTree(pos)
-            scene.add(t);
-            console.log(t);
-          }
-
-
-        }
+        // for (let i = -2; i < 3; i++){
+        //   for (let j = -2; j <3; j++){
+        //     let pos = new THREE.Vector3(2*i,0,2*j);
+        //     let t = createTree(pos)
+        //     scene.add(t);
+        //     console.log(t);
+        //   }
+        //
+        //
+        // }
       } else if(!done){
         console.log("NOT DONE")
       }
@@ -120,6 +119,30 @@
       renderer.render( scene, camera );
     }
     animate();
+
+    function createForest(user){
+      let xDif = 26; //Half of 52 weeks
+      let firstWeek = user.weeks[0];
+      let lastWeek = user.weeks[user.weeks.length - 1];
+      let middleWeeks = user.weeks.splice(1, user.weeks.length-1)
+      firstWeek.contributionDays.forEach((value, index) => {
+        let i = index - 3;
+        scene.add(createTree(new THREE.Vector3(-25*2,0,i*2)))
+      });
+      middleWeeks.forEach((week, weekIndex) =>{
+        let w = weekIndex - 24;
+        week.contributionDays.forEach((day, dayIndex) => {
+          let i = dayIndex - 3;
+          scene.add(createTree(new THREE.Vector3(w*2,0,i*2)));
+        })
+      })
+      lastWeek.contributionDays.forEach((value, index) => {
+        let i = index - 3;
+        scene.add(createTree(new THREE.Vector3(2*26,0,i*2)))
+      });
+
+
+    }
 
     function createTree(position){
       let tree = smallTree.clone();
