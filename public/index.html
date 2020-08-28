@@ -31,6 +31,7 @@
 
     let currentUser;
     const currentYear = new Date().getFullYear();
+    var yearField;
     const data = {user: "e-newton", year: currentYear}
     const options = {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -48,7 +49,12 @@
         currentUser = new User(cc["contributionCalendar"], cc["contributionYears"]);
         console.log(currentUser);
         createForest(currentUser);
-        gui.add(currentUser, 'years', currentUser.years ).name("Contribution Years: ");
+        if(yearField){
+          gui.remove(yearField);
+        }
+        yearField = gui.add(currentUser, 'years', currentUser.years )
+        yearField.name("Contribution Years: ");
+
 
       });
     }
@@ -94,6 +100,18 @@
 
     var gui = new GUI( { width: 300 } );
 
+
+    document.addEventListener('keydown', (event) => {
+      if(event.code === "Space"){
+        removeForest();
+      } else if(event.code === "KeyW"){
+        console.log("Butts");
+        getCurrentUserData();
+      }
+    })
+
+
+
     controls.update();
     var done = false;
     function animate() {
@@ -107,14 +125,22 @@
       }
 
 
+
       renderer.render( scene, camera );
     }
     animate();
+
+    function removeForest(){
+      treeInstances.forEach((tree) => {
+        scene.remove(tree);
+      })
+    }
 
     function createTreeFromDay(weekIndex, dayIndex, dayObject) {
       var tree = createTree(new THREE.Vector3(weekIndex * 2, 0, dayIndex * 2))
       var color = parseInt(dayObject.color.replace("#", "0x"))
       tree.children[1].material.color = new THREE.Color(color);
+      tree.scale.set(1,Math.log2(dayObject.contributionCount+1)+1,1);
       if (dayObject.contributionCount === 0) {
         tree.remove(tree.children[0]);
       }
