@@ -48,6 +48,7 @@
         currentUser = new User(cc["contributionCalendar"], cc["contributionYears"]);
         console.log(currentUser);
         createForest(currentUser);
+        gui.add(currentUser, 'years', currentUser.years ).name("Contribution Years: ");
 
       });
     }
@@ -97,21 +98,9 @@
     function animate() {
       requestAnimationFrame( animate );
       if(smallTree !== undefined && !done){
-        //scene.add(smallTree.clone());
         done = true;
         console.log("DONE")
         console.log(smallTree);
-
-        // for (let i = -2; i < 3; i++){
-        //   for (let j = -2; j <3; j++){
-        //     let pos = new THREE.Vector3(2*i,0,2*j);
-        //     let t = createTree(pos)
-        //     scene.add(t);
-        //     console.log(t);
-        //   }
-        //
-        //
-        // }
       } else if(!done){
         console.log("NOT DONE")
       }
