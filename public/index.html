@@ -51,6 +51,7 @@
         createForest(currentUser);
         if(!yearField){
           yearField = gui.add(currentUser, 'years', currentUser.years )
+          yearField.setValue(currentYear);
           yearField.name("Contribution Years: ");
           yearField.onChange(onYearChange);
         }
