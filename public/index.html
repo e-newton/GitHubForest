@@ -33,7 +33,7 @@
     const currentYear = new Date().getFullYear();
     var yearField;
     const data = {user: "e-newton", year: currentYear}
-    const options = {
+    let options = {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
       headers: {
         'Content-Type': 'application/json'
@@ -49,17 +49,31 @@
         currentUser = new User(cc["contributionCalendar"], cc["contributionYears"]);
         console.log(currentUser);
         createForest(currentUser);
-        if(yearField){
-          gui.remove(yearField);
+        if(!yearField){
+          yearField = gui.add(currentUser, 'years', currentUser.years )
+          yearField.name("Contribution Years: ");
+          yearField.onChange(onYearChange);
         }
-        yearField = gui.add(currentUser, 'years', currentUser.years )
-        yearField.name("Contribution Years: ");
+
 
 
       });
     }
 
     getCurrentUserData();
+
+    function onYearChange(){
+      data.year = yearField.getValue();
+      options = {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data) // body data type must match "Content-Type" header
+      };
+      removeForest();
+      getCurrentUserData();
+    }
 
 
 
@@ -140,7 +154,7 @@
       var tree = createTree(new THREE.Vector3(weekIndex * 2, 0, dayIndex * 2))
       var color = parseInt(dayObject.color.replace("#", "0x"))
       tree.children[1].material.color = new THREE.Color(color);
-      tree.scale.set(1,Math.log2(dayObject.contributionCount+1)+1,1);
+      tree.scale.set(1,Math.log2(dayObject.contributionCount+1)+0.5,1);
       if (dayObject.contributionCount === 0) {
         tree.remove(tree.children[0]);
       }
