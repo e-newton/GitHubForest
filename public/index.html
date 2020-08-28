@@ -128,6 +128,11 @@
       firstWeek.contributionDays.forEach((value, index) => {
         let i = index - 3;
         var tree = createTree(new THREE.Vector3(-25*2,0,i*2))
+        var color = parseInt(value.color.replace("#","0x"))
+        tree.children[1].material.color = new THREE.Color(color);
+        if(value.contributionCount === 0){
+          tree.remove(tree.children[0]);
+        }
         scene.add(tree);
       });
       middleWeeks.forEach((week, weekIndex) =>{
@@ -137,6 +142,9 @@
           var tree = createTree(new THREE.Vector3(w*2,0,i*2))
           var color = parseInt(day.color.replace("#","0x"))
           tree.children[1].material.color = new THREE.Color(color);
+          if(day.contributionCount === 0){
+            tree.remove(tree.children[0]);
+          }
           console.log("Color: " + day.color);
           scene.add(tree);
         })
@@ -145,7 +153,10 @@
         let i = index - 3;
         var tree = createTree(new THREE.Vector3(2*26,0,i*2))
         var color = parseInt(value.color.replace("#","0x"))
-        tree.children[1].material.color = new THREE.Color(0x000000);
+        tree.children[1].material.color = new THREE.Color(color);
+        if(value.contributionCount === 0){
+          tree.remove(tree.children[0]);
+        }
         console.log("Color: " + value.color);
         scene.add(tree)
       });
