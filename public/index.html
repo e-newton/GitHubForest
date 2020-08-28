@@ -155,6 +155,11 @@
 
     function createTree(position){
       let tree = smallTree.clone();
+      tree.traverse((node) => {
+        if (node.isMesh) {
+          node.material = node.material.clone();
+        }
+      });
       tree.position.set(position.x, position.y, position.z);
       return tree;
     }
