@@ -33,6 +33,7 @@ async function getContributions(user, year){
                                   contributionDays{
                                     date
                                     contributionCount
+                                    color
                                   }
                                 }
                               }

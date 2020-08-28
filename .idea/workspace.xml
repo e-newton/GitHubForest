@@ -19,9 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc322875-443b-43e3-8631-b9af9ee8368c" name="Default Changelist" comment="Added shadows">
+    <list default="true" id="cc322875-443b-43e3-8631-b9af9ee8368c" name="Default Changelist" comment="Will render a forest!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/contributions.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/contributions.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +105,8 @@
       <workItem from="1597597097825" duration="47000" />
       <workItem from="1597597256783" duration="4134000" />
       <workItem from="1597602572006" duration="6480000" />
-      <workItem from="1597875643505" duration="2134000" />
+      <workItem from="1597875643505" duration="2251000" />
+      <workItem from="1598585580719" duration="1097000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit of GitHub Forest">
       <created>1597461603826</created>
@@ -176,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597876531238</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Will render a forest!">
+      <created>1597884976568</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1597884976568</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,7 +215,8 @@
     <MESSAGE value="Added the correct smallTree.json and have an async load of the tree to add later in the scene." />
     <MESSAGE value="Merged the API call with Three.js to work within the same script." />
     <MESSAGE value="Added shadows" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added shadows" />
+    <MESSAGE value="Will render a forest!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Will render a forest!" />
   </component>
   <component name="WindowStateProjectService">
     <state x="184" y="90" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597291149283">
@@ -234,31 +244,31 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="478" y="324" key="Github.CreatePullRequestDialog/0.0.1440.900@0.0.1440.900" timestamp="1597689883472" />
-    <state width="708" height="201" key="GridCell.Tab.0.bottom" timestamp="1597884688664">
+    <state width="708" height="201" key="GridCell.Tab.0.bottom" timestamp="1598586634313">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="708" height="201" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1597884688664" />
+    <state width="708" height="201" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1598586634313" />
     <state width="1419" height="209" key="GridCell.Tab.0.bottom/0.23.1440.811@0.23.1440.811" timestamp="1597535453055" />
     <state width="688" height="201" key="GridCell.Tab.0.bottom/0.23.1440.829@0.23.1440.829" timestamp="1597644505212" />
     <state width="689" height="202" key="GridCell.Tab.0.bottom/0.23.1440.831@0.23.1440.831" timestamp="1597602336764" />
-    <state width="708" height="201" key="GridCell.Tab.0.center" timestamp="1597884688662">
+    <state width="708" height="201" key="GridCell.Tab.0.center" timestamp="1598586634310">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="708" height="201" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1597884688662" />
+    <state width="708" height="201" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1598586634310" />
     <state width="1419" height="209" key="GridCell.Tab.0.center/0.23.1440.811@0.23.1440.811" timestamp="1597535453055" />
     <state width="688" height="201" key="GridCell.Tab.0.center/0.23.1440.829@0.23.1440.829" timestamp="1597644505208" />
     <state width="689" height="202" key="GridCell.Tab.0.center/0.23.1440.831@0.23.1440.831" timestamp="1597602336763" />
-    <state width="708" height="201" key="GridCell.Tab.0.left" timestamp="1597884688661">
+    <state width="708" height="201" key="GridCell.Tab.0.left" timestamp="1598586634309">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="708" height="201" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1597884688661" />
+    <state width="708" height="201" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1598586634309" />
     <state width="1419" height="209" key="GridCell.Tab.0.left/0.23.1440.811@0.23.1440.811" timestamp="1597535453054" />
     <state width="688" height="201" key="GridCell.Tab.0.left/0.23.1440.829@0.23.1440.829" timestamp="1597644505206" />
     <state width="689" height="202" key="GridCell.Tab.0.left/0.23.1440.831@0.23.1440.831" timestamp="1597602336763" />
-    <state width="708" height="201" key="GridCell.Tab.0.right" timestamp="1597884688663">
+    <state width="708" height="201" key="GridCell.Tab.0.right" timestamp="1598586634311">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="708" height="201" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1597884688663" />
+    <state width="708" height="201" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1598586634311" />
     <state width="1419" height="209" key="GridCell.Tab.0.right/0.23.1440.811@0.23.1440.811" timestamp="1597535453055" />
     <state width="688" height="201" key="GridCell.Tab.0.right/0.23.1440.829@0.23.1440.829" timestamp="1597644505210" />
     <state width="689" height="202" key="GridCell.Tab.0.right/0.23.1440.831@0.23.1440.831" timestamp="1597602336764" />
@@ -326,10 +336,10 @@
       <screen x="0" y="23" width="1440" height="811" />
     </state>
     <state x="229" y="67" key="SettingsEditor/0.23.1440.811@0.23.1440.811" timestamp="1597291303477" />
-    <state x="320" y="161" key="Vcs.Push.Dialog.v2" timestamp="1597689837336">
+    <state x="320" y="161" key="Vcs.Push.Dialog.v2" timestamp="1597884982648">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="161" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1597689837336" />
+    <state x="320" y="161" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1597884982648" />
     <state x="320" y="168" key="Vcs.Push.Dialog.v2/0.23.1440.811@0.23.1440.811" timestamp="1597522986496" />
     <state x="320" y="172" key="Vcs.Push.Dialog.v2/0.23.1440.831@0.23.1440.831" timestamp="1597598765183" />
     <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597875661560">
@@ -341,5 +351,17 @@
     </state>
     <state x="542" y="329" key="git4idea.remote.GitConfigureRemotesDialog/0.23.1440.811@0.23.1440.811" timestamp="1597461770821" />
     <state x="542" y="337" key="git4idea.remote.GitConfigureRemotesDialog/0.23.1440.831@0.23.1440.831" timestamp="1597598760346" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/public/index.html</url>
+          <line>147</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

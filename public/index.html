@@ -81,7 +81,7 @@
     });
 
     var controls = new OrbitControls( camera, renderer.domElement );
-    var directionalLight = new THREE.DirectionalLight( 0xffffff, 2 );
+    var directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
     directionalLight.position.set(5,25,7.5);
     directionalLight.castShadow = true;
 
@@ -127,18 +127,27 @@
       let middleWeeks = user.weeks.splice(1, user.weeks.length-1)
       firstWeek.contributionDays.forEach((value, index) => {
         let i = index - 3;
-        scene.add(createTree(new THREE.Vector3(-25*2,0,i*2)))
+        var tree = createTree(new THREE.Vector3(-25*2,0,i*2))
+        scene.add(tree);
       });
       middleWeeks.forEach((week, weekIndex) =>{
         let w = weekIndex - 24;
         week.contributionDays.forEach((day, dayIndex) => {
           let i = dayIndex - 3;
-          scene.add(createTree(new THREE.Vector3(w*2,0,i*2)));
+          var tree = createTree(new THREE.Vector3(w*2,0,i*2))
+          var color = parseInt(day.color.replace("#","0x"))
+          tree.children[1].material.color = new THREE.Color(color);
+          console.log("Color: " + day.color);
+          scene.add(tree);
         })
       })
       lastWeek.contributionDays.forEach((value, index) => {
         let i = index - 3;
-        scene.add(createTree(new THREE.Vector3(2*26,0,i*2)))
+        var tree = createTree(new THREE.Vector3(2*26,0,i*2))
+        var color = parseInt(value.color.replace("#","0x"))
+        tree.children[1].material.color = new THREE.Color(0x000000);
+        console.log("Color: " + value.color);
+        scene.add(tree)
       });
 
 
