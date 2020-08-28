@@ -120,6 +120,16 @@
     }
     animate();
 
+    function createTreeFromDay(weekIndex, dayIndex, dayObject) {
+      var tree = createTree(new THREE.Vector3(weekIndex * 2, 0, dayIndex * 2))
+      var color = parseInt(dayObject.color.replace("#", "0x"))
+      tree.children[1].material.color = new THREE.Color(color);
+      if (dayObject.contributionCount === 0) {
+        tree.remove(tree.children[0]);
+      }
+      return tree;
+    }
+
     function createForest(user){
       let xDif = 26; //Half of 52 weeks
       let firstWeek = user.weeks[0];
@@ -127,36 +137,21 @@
       let middleWeeks = user.weeks.splice(1, user.weeks.length-1)
       firstWeek.contributionDays.forEach((value, index) => {
         let i = index - 3;
-        var tree = createTree(new THREE.Vector3(-25*2,0,i*2))
-        var color = parseInt(value.color.replace("#","0x"))
-        tree.children[1].material.color = new THREE.Color(color);
-        if(value.contributionCount === 0){
-          tree.remove(tree.children[0]);
-        }
+        var tree = createTreeFromDay(-25,i,value);
         scene.add(tree);
       });
       middleWeeks.forEach((week, weekIndex) =>{
         let w = weekIndex - 24;
         week.contributionDays.forEach((day, dayIndex) => {
           let i = dayIndex - 3;
-          var tree = createTree(new THREE.Vector3(w*2,0,i*2))
-          var color = parseInt(day.color.replace("#","0x"))
-          tree.children[1].material.color = new THREE.Color(color);
-          if(day.contributionCount === 0){
-            tree.remove(tree.children[0]);
-          }
+          var tree = createTreeFromDay(w, i, day);
           console.log("Color: " + day.color);
           scene.add(tree);
         })
       })
       lastWeek.contributionDays.forEach((value, index) => {
         let i = index - 3;
-        var tree = createTree(new THREE.Vector3(2*26,0,i*2))
-        var color = parseInt(value.color.replace("#","0x"))
-        tree.children[1].material.color = new THREE.Color(color);
-        if(value.contributionCount === 0){
-          tree.remove(tree.children[0]);
-        }
+        var tree = createTreeFromDay(26,i,value);
         console.log("Color: " + value.color);
         scene.add(tree)
       });
