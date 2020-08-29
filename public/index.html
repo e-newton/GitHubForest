@@ -31,7 +31,9 @@
 
     let currentUser;
     const currentYear = new Date().getFullYear();
+    var currentUserName = {name:""};
     var yearField;
+    var nameField;
     const data = {user: "e-newton", year: currentYear}
     let options = {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -54,7 +56,20 @@
           yearField.setValue(currentYear);
           yearField.name("Contribution Years: ");
           yearField.onChange(onYearChange);
+
+        } else{
+          console.log("YEARS: " + currentUser.years);
+          yearField = yearField.options(currentUser.years);
+          yearField.name("Contribution Years: ");
+          yearField.onChange(onYearChange);
         }
+        if(!nameField){
+          nameField = gui.add(currentUserName, 'name');
+          nameField.setValue("e-newton");
+          nameField.name("Username: ")
+          nameField.onFinishChange(onNameChange);
+        }
+
 
 
 
@@ -74,6 +89,24 @@
       };
       removeForest();
       getCurrentUserData();
+
+    }
+
+    function onNameChange(){
+      data.user = nameField.getValue();
+      data.year = new Date().getFullYear();
+      yearField.setValue(data.year);
+      options = {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data) // body data type must match "Content-Type" header
+      };
+      removeForest();
+      getCurrentUserData();
+
+
     }
 
 
@@ -178,7 +211,6 @@
         week.contributionDays.forEach((day, dayIndex) => {
           let i = dayIndex - 3;
           var tree = createTreeFromDay(w, i, day);
-          console.log("Color: " + day.color);
           scene.add(tree);
           treeInstances.push(tree);
         })
@@ -186,7 +218,6 @@
       lastWeek.contributionDays.forEach((value, index) => {
         let i = index - 3;
         var tree = createTreeFromDay(26,i,value);
-        console.log("Color: " + value.color);
         scene.add(tree)
         treeInstances.push(tree);
       });
