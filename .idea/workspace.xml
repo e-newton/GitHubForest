@@ -19,14 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc322875-443b-43e3-8631-b9af9ee8368c" name="Default Changelist" comment="Removed camera helper, set camera intial position">
+    <list default="true" id="cc322875-443b-43e3-8631-b9af9ee8368c" name="Default Changelist" comment="Version 1.0 Refactoring">
+      <change afterPath="$PROJECT_DIR$/public/User.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cubemap/nx.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cubemap/ny.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cubemap/nz.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cubemap/px.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cubemap/py.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/cubemap/pz.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -297,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598668459196</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Version 1.0 Refactoring">
+      <created>1598740728354</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1598740728355</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,7 +319,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Remove API Token (that I left in like a dummy)" />
     <MESSAGE value="Added user class to store backend data on front end" />
     <MESSAGE value="Added three.js and added import statements to index.html" />
     <MESSAGE value="Added 'hello world' three.js into front end from https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene" />
@@ -342,7 +343,8 @@
     <MESSAGE value="Added fullscreen support" />
     <MESSAGE value="Corrected Shadows" />
     <MESSAGE value="Removed camera helper, set camera intial position" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed camera helper, set camera intial position" />
+    <MESSAGE value="Version 1.0 Refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 1.0 Refactoring" />
   </component>
   <component name="WindowStateProjectService">
     <state x="184" y="90" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597291149283">
@@ -370,31 +372,31 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="478" y="324" key="Github.CreatePullRequestDialog/0.0.1440.900@0.0.1440.900" timestamp="1597689883472" />
-    <state width="708" height="201" key="GridCell.Tab.0.bottom" timestamp="1598740096492">
+    <state width="708" height="201" key="GridCell.Tab.0.bottom" timestamp="1598740898292">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="708" height="201" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1598740096492" />
+    <state width="708" height="201" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1598740898292" />
     <state width="1419" height="209" key="GridCell.Tab.0.bottom/0.23.1440.811@0.23.1440.811" timestamp="1597535453055" />
     <state width="688" height="201" key="GridCell.Tab.0.bottom/0.23.1440.829@0.23.1440.829" timestamp="1597644505212" />
     <state width="689" height="202" key="GridCell.Tab.0.bottom/0.23.1440.831@0.23.1440.831" timestamp="1597602336764" />
-    <state width="708" height="201" key="GridCell.Tab.0.center" timestamp="1598740096491">
+    <state width="708" height="201" key="GridCell.Tab.0.center" timestamp="1598740898290">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="708" height="201" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1598740096491" />
+    <state width="708" height="201" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1598740898290" />
     <state width="1419" height="209" key="GridCell.Tab.0.center/0.23.1440.811@0.23.1440.811" timestamp="1597535453055" />
     <state width="688" height="201" key="GridCell.Tab.0.center/0.23.1440.829@0.23.1440.829" timestamp="1597644505208" />
     <state width="689" height="202" key="GridCell.Tab.0.center/0.23.1440.831@0.23.1440.831" timestamp="1597602336763" />
-    <state width="708" height="201" key="GridCell.Tab.0.left" timestamp="1598740096490">
+    <state width="708" height="201" key="GridCell.Tab.0.left" timestamp="1598740898290">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="708" height="201" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1598740096490" />
+    <state width="708" height="201" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1598740898290" />
     <state width="1419" height="209" key="GridCell.Tab.0.left/0.23.1440.811@0.23.1440.811" timestamp="1597535453054" />
     <state width="688" height="201" key="GridCell.Tab.0.left/0.23.1440.829@0.23.1440.829" timestamp="1597644505206" />
     <state width="689" height="202" key="GridCell.Tab.0.left/0.23.1440.831@0.23.1440.831" timestamp="1597602336763" />
-    <state width="708" height="201" key="GridCell.Tab.0.right" timestamp="1598740096491">
+    <state width="708" height="201" key="GridCell.Tab.0.right" timestamp="1598740898291">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="708" height="201" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1598740096491" />
+    <state width="708" height="201" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1598740898291" />
     <state width="1419" height="209" key="GridCell.Tab.0.right/0.23.1440.811@0.23.1440.811" timestamp="1597535453055" />
     <state width="688" height="201" key="GridCell.Tab.0.right/0.23.1440.829@0.23.1440.829" timestamp="1597644505210" />
     <state width="689" height="202" key="GridCell.Tab.0.right/0.23.1440.831@0.23.1440.831" timestamp="1597602336764" />
@@ -478,10 +480,10 @@
       <screen x="0" y="23" width="1440" height="811" />
     </state>
     <state x="229" y="67" key="SettingsEditor/0.23.1440.811@0.23.1440.811" timestamp="1597291303477" />
-    <state x="320" y="161" key="Vcs.Push.Dialog.v2" timestamp="1598660453672">
+    <state x="320" y="161" key="Vcs.Push.Dialog.v2" timestamp="1598740729993">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="161" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1598660453672" />
+    <state x="320" y="161" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1598740729993" />
     <state x="320" y="168" key="Vcs.Push.Dialog.v2/0.23.1440.811@0.23.1440.811" timestamp="1597522986496" />
     <state x="320" y="172" key="Vcs.Push.Dialog.v2/0.23.1440.831@0.23.1440.831" timestamp="1597598765183" />
     <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597875661560">
