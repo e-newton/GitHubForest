@@ -120,6 +120,7 @@
     import * as THREE from '../build/three.module.js';
     import { OrbitControls } from '/OrbitControls.js';
     import { GUI } from '../build/dat.gui.module.js';
+    import * as STATS from '../build/stats.module.js';
     var smallTree;
     var treeInstances = [];
     var scene = new THREE.Scene();
@@ -153,15 +154,15 @@
     directionalLight.shadow.mapSize.height = 8192;
 
     scene.add( directionalLight );
-    camera.position.z = 5;
+    camera.position.z = 46;
+    camera.position.y = 40;
 
     directionalLight.shadow.camera.updateProjectionMatrix();
 
-    const cameraHelper = new THREE.CameraHelper(directionalLight.shadow.camera);
-    scene.add(cameraHelper);
+    // const cameraHelper = new THREE.CameraHelper(directionalLight.shadow.camera);
+    // scene.add(cameraHelper);
 
     var gui = new GUI( { width: 300 } );
-
 
     document.addEventListener('keydown', (event) => {
       if(event.code === "Space"){
@@ -177,6 +178,7 @@
     controls.update();
     var done = false;
     function animate() {
+      console.log(camera.position);
       requestAnimationFrame( animate );
       if(smallTree !== undefined && !done){
         done = true;
