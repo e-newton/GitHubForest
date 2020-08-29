@@ -29,19 +29,6 @@
       }
     }
 
-    let currentUser;
-    const currentYear = new Date().getFullYear();
-    var currentUserName = {name:""};
-    var yearField;
-    var nameField;
-    const data = {user: "e-newton", year: currentYear}
-    let options = {
-      method: 'POST', // *GET, POST, PUT, DELETE, etc.
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data) // body data type must match "Content-Type" header
-    };
 
     function getCurrentUserData() {
       fetch('/contributions', options).then(res => {
@@ -76,7 +63,6 @@
       });
     }
 
-    getCurrentUserData();
 
     function onYearChange(){
       data.year = yearField.getValue();
@@ -108,112 +94,59 @@
 
 
     }
-
-
-
-
-
-
-
-
-
-    import * as THREE from '../build/three.module.js';
-    import { OrbitControls } from '/OrbitControls.js';
-    import { GUI } from '../build/dat.gui.module.js';
-    var smallTree;
-    var treeInstances = [];
-    var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
-    var loader = new THREE.ObjectLoader();
-    var renderer = new THREE.WebGLRenderer({antialias:true});
-    renderer.setSize( window.innerWidth, window.innerHeight );
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-    document.body.appendChild( renderer.domElement );
-    scene.fog = new THREE.Fog(0xFFFFFF,100,300);
-
-    var backgroundPlaneGeometry = new THREE.PlaneGeometry(0,0,0);
-    var materialPlane = new THREE.MeshBasicMaterial( {color: 0x00F000, side: THREE.DoubleSide} );
-    var backgroundPlane = new THREE.Mesh(backgroundPlaneGeometry,materialPlane);
-    backgroundPlane.rotateOnAxis(new THREE.Vector3(1,0,0), THREE.MathUtils.degToRad(-90));
-    backgroundPlane.scale.set(1000,1000,1000);
-    backgroundPlane.position.set(0,-1,0);
-
-    scene.add(backgroundPlane);
-    scene.background = new THREE.Color( 0x87CEEB );
-
-    // scene.background = new THREE.CubeTextureLoader()
-    //         .setPath( '/cubemap/' )
-    //         .load( [
-    //           'px.png',
-    //           'nx.png',
-    //           'py.png',
-    //           'ny.png',
-    //           'pz.png',
-    //           'nz.png'
-    //         ] );
-
-    loader.load("smallTree.json", function ( obj ) {
-      console.log(obj)
-      smallTree = obj;
-    });
-
-    var ambientLight = new THREE.AmbientLight(0xFFFFFF,0.1)
-    scene.add(ambientLight);
-
-    var controls = new OrbitControls( camera, renderer.domElement );
-    controls.maxPolarAngle = THREE.MathUtils.degToRad(90);
-    var directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
-    directionalLight.shadow.camera.left = 100;
-    directionalLight.shadow.camera.right = -100;
-    directionalLight.shadow.camera.top = 25;
-    directionalLight.shadow.camera.bottom = -25;
-
-    directionalLight.position.set(25,25,50);
-    directionalLight.castShadow = true;
-
-    directionalLight.shadow.mapSize.width = 8192;
-    directionalLight.shadow.mapSize.height = 8192;
-
-    scene.add( directionalLight );
-    camera.position.z = 30;
-    camera.position.y = 26;
-
-    directionalLight.shadow.camera.updateProjectionMatrix();
-
-    // const cameraHelper = new THREE.CameraHelper(directionalLight.shadow.camera);
-    // scene.add(cameraHelper);
-
-    var gui = new GUI( { width: 300 } );
-
-    document.addEventListener('keydown', (event) => {
-      if(event.code === "Space"){
-        removeForest();
-      } else if(event.code === "KeyW"){
-        console.log("Butts");
-        getCurrentUserData();
-      }
-    })
-
-
-
-    controls.update();
-    var done = false;
-    function animate() {
-      requestAnimationFrame( animate );
-      if(smallTree !== undefined && !done){
-        done = true;
-        console.log("DONE")
-        console.log(smallTree);
-      } else if(!done){
-        console.log("NOT DONE")
-      }
-
-
-
-      renderer.render( scene, camera );
+    function createBackgroundPlane() {
+      var backgroundPlaneGeometry = new THREE.PlaneGeometry(0, 0, 0);
+      var materialPlane = new THREE.MeshBasicMaterial({color: 0x00F000, side: THREE.DoubleSide});
+      var backgroundPlane = new THREE.Mesh(backgroundPlaneGeometry, materialPlane);
+      backgroundPlane.rotateOnAxis(new THREE.Vector3(1, 0, 0), THREE.MathUtils.degToRad(-90));
+      backgroundPlane.scale.set(1000, 1000, 1000);
+      backgroundPlane.position.set(0, -1, 0);
+      scene.add(backgroundPlane);
     }
-    animate();
+    function init() {
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+      document.body.appendChild(renderer.domElement);
+      scene.fog = new THREE.Fog(0xFFFFFF, 100, 300);
+      scene.background = new THREE.Color( 0x87CEEB );
+    }
+
+    function loadSmallTree() {
+      loader.load("smallTree.json", function (obj) {
+        console.log(obj)
+        smallTree = obj;
+      });
+    }
+    function setupControls() {
+      var controls = new OrbitControls(camera, renderer.domElement);
+      controls.maxPolarAngle = THREE.MathUtils.degToRad(90);
+      controls.update();
+    }
+
+
+    function setupLighting() {
+      var ambientLight = new THREE.AmbientLight(0xFFFFFF, 0.1)
+      scene.add(ambientLight);
+
+      var directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+      directionalLight.shadow.camera.left = 100;
+      directionalLight.shadow.camera.right = -100;
+      directionalLight.shadow.camera.top = 25;
+      directionalLight.shadow.camera.bottom = -25;
+
+      directionalLight.position.set(25, 25, 50);
+      directionalLight.castShadow = true;
+
+      directionalLight.shadow.mapSize.width = 8192;
+      directionalLight.shadow.mapSize.height = 8192;
+
+      scene.add(directionalLight);
+      directionalLight.shadow.camera.updateProjectionMatrix();
+      camera.position.z = 30;
+      camera.position.y = 26;
+    }
+
 
     function removeForest(){
       treeInstances.forEach((tree) => {
@@ -272,6 +205,68 @@
       tree.position.set(position.x, position.y, position.z);
       return tree;
     }
+
+
+
+
+
+
+
+
+
+    import * as THREE from '../build/three.module.js';
+    import { OrbitControls } from '/OrbitControls.js';
+    import { GUI } from '../build/dat.gui.module.js';
+
+
+
+    let currentUser;
+    const currentYear = new Date().getFullYear();
+    var currentUserName = {name:""};
+    var yearField;
+    var nameField;
+    const data = {user: "e-newton", year: currentYear}
+    let options = {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data) // body data type must match "Content-Type" header
+    };
+
+    getCurrentUserData();
+
+    var smallTree;
+    var treeInstances = [];
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+    var loader = new THREE.ObjectLoader();
+    var renderer = new THREE.WebGLRenderer({antialias:true});
+
+
+
+    init();
+    createBackgroundPlane();
+    setupControls();
+    loadSmallTree();
+    setupLighting();
+
+
+    var gui = new GUI( { width: 300 } );
+    var done = false;
+    function animate() {
+      requestAnimationFrame( animate );
+      if(smallTree !== undefined && !done){
+        done = true;
+        console.log("DONE")
+        console.log(smallTree);
+      } else if(!done){
+        console.log("NOT DONE")
+      }
+      renderer.render( scene, camera );
+    }
+    animate();
+
 
 
 
