@@ -128,6 +128,7 @@
     var renderer = new THREE.WebGLRenderer({antialias:true});
     renderer.setSize( window.innerWidth, window.innerHeight );
     renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     document.body.appendChild( renderer.domElement );
 
     loader.load("smallTree.json", function ( obj ) {
@@ -135,16 +136,29 @@
       smallTree = obj;
     });
 
+    var ambientLight = new THREE.AmbientLight(0xFFFFFF,0.1)
+    scene.add(ambientLight);
+
     var controls = new OrbitControls( camera, renderer.domElement );
     var directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
-    directionalLight.position.set(5,25,7.5);
+    directionalLight.shadow.camera.left = 100;
+    directionalLight.shadow.camera.right = -100;
+    directionalLight.shadow.camera.top = 25;
+    directionalLight.shadow.camera.bottom = -25;
+
+    directionalLight.position.set(25,25,50);
     directionalLight.castShadow = true;
 
+    directionalLight.shadow.mapSize.width = 8192;
+    directionalLight.shadow.mapSize.height = 8192;
+
     scene.add( directionalLight );
-    var group = new THREE.Group();
-    group.add(directionalLight);
-    scene.add(group);
     camera.position.z = 5;
+
+    directionalLight.shadow.camera.updateProjectionMatrix();
+
+    const cameraHelper = new THREE.CameraHelper(directionalLight.shadow.camera);
+    scene.add(cameraHelper);
 
     var gui = new GUI( { width: 300 } );
 
