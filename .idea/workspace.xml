@@ -19,9 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc322875-443b-43e3-8631-b9af9ee8368c" name="Default Changelist" comment="Will dynamically change years based on user.">
+    <list default="true" id="cc322875-443b-43e3-8631-b9af9ee8368c" name="Default Changelist" comment="Added antialiasing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/stylesheets/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/stylesheets/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +106,7 @@
       <workItem from="1597602572006" duration="6480000" />
       <workItem from="1597875643505" duration="2251000" />
       <workItem from="1598585580719" duration="1629000" />
-      <workItem from="1598652490558" duration="6492000" />
+      <workItem from="1598652490558" duration="6762000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit of GitHub Forest">
       <created>1597461603826</created>
@@ -262,7 +262,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598659973251</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Added antialiasing">
+      <created>1598660202103</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1598660202103</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,7 +311,8 @@
     <MESSAGE value="Added year functionality." />
     <MESSAGE value="Added current year as default to year field." />
     <MESSAGE value="Will dynamically change years based on user." />
-    <option name="LAST_COMMIT_MESSAGE" value="Will dynamically change years based on user." />
+    <MESSAGE value="Added antialiasing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added antialiasing" />
   </component>
   <component name="WindowStateProjectService">
     <state x="184" y="90" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597291149283">
