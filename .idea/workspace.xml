@@ -19,10 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc322875-443b-43e3-8631-b9af9ee8368c" name="Default Changelist" comment="Version 1.0 Refactoring">
-      <change afterPath="$PROJECT_DIR$/public/User.js" afterDir="false" />
+    <list default="true" id="cc322875-443b-43e3-8631-b9af9ee8368c" name="Default Changelist" comment="Refactored User.js">
+      <change afterPath="$PROJECT_DIR$/public/about.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/about.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +36,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -56,6 +60,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="12.18.3" />
@@ -72,13 +77,14 @@
     <property name="settings.editor.selected.configurable" value="liveEdit" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/public/build" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/public/build" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.bin/www">
@@ -299,7 +305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598740728355</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Refactored User.js">
+      <created>1598740917390</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1598740917390</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,7 +332,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Added user class to store backend data on front end" />
     <MESSAGE value="Added three.js and added import statements to index.html" />
     <MESSAGE value="Added 'hello world' three.js into front end from https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene" />
     <MESSAGE value="Got Three.js and OrbitControls.js to import correctly" />
@@ -344,7 +356,8 @@
     <MESSAGE value="Corrected Shadows" />
     <MESSAGE value="Removed camera helper, set camera intial position" />
     <MESSAGE value="Version 1.0 Refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 1.0 Refactoring" />
+    <MESSAGE value="Refactored User.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored User.js" />
   </component>
   <component name="WindowStateProjectService">
     <state x="184" y="90" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597291149283">
@@ -372,31 +385,31 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="478" y="324" key="Github.CreatePullRequestDialog/0.0.1440.900@0.0.1440.900" timestamp="1597689883472" />
-    <state width="708" height="201" key="GridCell.Tab.0.bottom" timestamp="1598740898292">
+    <state width="708" height="201" key="GridCell.Tab.0.bottom" timestamp="1598757169191">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="708" height="201" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1598740898292" />
+    <state width="708" height="201" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1598757169191" />
     <state width="1419" height="209" key="GridCell.Tab.0.bottom/0.23.1440.811@0.23.1440.811" timestamp="1597535453055" />
     <state width="688" height="201" key="GridCell.Tab.0.bottom/0.23.1440.829@0.23.1440.829" timestamp="1597644505212" />
     <state width="689" height="202" key="GridCell.Tab.0.bottom/0.23.1440.831@0.23.1440.831" timestamp="1597602336764" />
-    <state width="708" height="201" key="GridCell.Tab.0.center" timestamp="1598740898290">
+    <state width="708" height="201" key="GridCell.Tab.0.center" timestamp="1598757169190">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="708" height="201" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1598740898290" />
+    <state width="708" height="201" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1598757169190" />
     <state width="1419" height="209" key="GridCell.Tab.0.center/0.23.1440.811@0.23.1440.811" timestamp="1597535453055" />
     <state width="688" height="201" key="GridCell.Tab.0.center/0.23.1440.829@0.23.1440.829" timestamp="1597644505208" />
     <state width="689" height="202" key="GridCell.Tab.0.center/0.23.1440.831@0.23.1440.831" timestamp="1597602336763" />
-    <state width="708" height="201" key="GridCell.Tab.0.left" timestamp="1598740898290">
+    <state width="708" height="201" key="GridCell.Tab.0.left" timestamp="1598757169189">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="708" height="201" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1598740898290" />
+    <state width="708" height="201" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1598757169189" />
     <state width="1419" height="209" key="GridCell.Tab.0.left/0.23.1440.811@0.23.1440.811" timestamp="1597535453054" />
     <state width="688" height="201" key="GridCell.Tab.0.left/0.23.1440.829@0.23.1440.829" timestamp="1597644505206" />
     <state width="689" height="202" key="GridCell.Tab.0.left/0.23.1440.831@0.23.1440.831" timestamp="1597602336763" />
-    <state width="708" height="201" key="GridCell.Tab.0.right" timestamp="1598740898291">
+    <state width="708" height="201" key="GridCell.Tab.0.right" timestamp="1598757169190">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="708" height="201" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1598740898291" />
+    <state width="708" height="201" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1598757169190" />
     <state width="1419" height="209" key="GridCell.Tab.0.right/0.23.1440.811@0.23.1440.811" timestamp="1597535453055" />
     <state width="688" height="201" key="GridCell.Tab.0.right/0.23.1440.829@0.23.1440.829" timestamp="1597644505210" />
     <state width="689" height="202" key="GridCell.Tab.0.right/0.23.1440.831@0.23.1440.831" timestamp="1597602336764" />
@@ -480,10 +493,10 @@
       <screen x="0" y="23" width="1440" height="811" />
     </state>
     <state x="229" y="67" key="SettingsEditor/0.23.1440.811@0.23.1440.811" timestamp="1597291303477" />
-    <state x="320" y="161" key="Vcs.Push.Dialog.v2" timestamp="1598740729993">
+    <state x="320" y="161" key="Vcs.Push.Dialog.v2" timestamp="1598740919180">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="161" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1598740729993" />
+    <state x="320" y="161" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1598740919180" />
     <state x="320" y="168" key="Vcs.Push.Dialog.v2/0.23.1440.811@0.23.1440.811" timestamp="1597522986496" />
     <state x="320" y="172" key="Vcs.Push.Dialog.v2/0.23.1440.831@0.23.1440.831" timestamp="1597598765183" />
     <state x="518" y="371" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1597875661560">
