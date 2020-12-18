@@ -17,7 +17,7 @@
 
 
     function getCurrentUserData() {
-      fetch('/contributions', options).then(res => {
+      fetch('./contributions', options).then(res => {
         return res.json();
       }).then(json => {
         const cc = json.data.user["contributionsCollection"];
